@@ -43,6 +43,7 @@ All the results are cited from original paper. More details can be found in the 
 
 ## Citation
 ```
+If you need use this code for your research, please cite our papers.
 @article{xu2017multisource,
   title={Multisource Remote Sensing Data Classification Based on Convolutional Neural Network},
   author={Xu, Xiaodong and Li, Wei and Ran, Qiong and Du, Qian and Gao, Lianru and Zhang, Bing},
@@ -52,5 +53,5 @@ All the results are cited from original paper. More details can be found in the 
 }
 ```
 ## TODO
-1. pytorch version.
+1. PyTorch version.
 2. more flexiable dataset utilization
