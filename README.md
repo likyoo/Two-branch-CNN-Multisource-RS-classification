@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ## Usage
 ### dataset utilization
-**Please modify line 10-22 in *data_util.py* for the dataset details.**
+**Please modify [lines](https://github.com/Hsuxu/Two-branch-CNN-Multisource-RS-classification/blob/master/data_util.py#L11-L23) in [data_util.py](https://github.com/Hsuxu/Two-branch-CNN-Multisource-RS-classification/blob/master/data_util.py) for the dataset details.**
 
 ### Training
 1. Train HSI
