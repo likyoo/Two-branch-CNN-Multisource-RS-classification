@@ -8,6 +8,7 @@ from data_util import *
 from models import *
 import matplotlib.pyplot as plt
 
+
 def cvt_map(pred, show=False):
     """
     convert prediction percent to map
@@ -28,7 +29,6 @@ def cvt_map(pred, show=False):
         plt.figure()
         plt.imshow(gth)
         plt.show()
-    # tiff.imsave('results/Houston_lidar.tif',pred_map)
     count = np.sum(pred == cls)
     mx = confusion(pred - 1, cls - 1)
     print mx
@@ -51,9 +51,10 @@ def confusion(pred, labels):
     np.savetxt('confusion.txt', mx, delimiter=" ", fmt="%s")
     return mx
 
+
 def compute_Kappa(confusion_matrix):
     """
-    TODO =_= 
+    Compute Kappa Coefficient
     """
     N = np.sum(confusion_matrix)
     N_observed = np.trace(confusion_matrix)
@@ -63,6 +64,7 @@ def compute_Kappa(confusion_matrix):
     Pe = np.sum(np.multiply(1.0 * h_sum / N, 1.0 * v_sum / N))
     kappa = (Po - Pe) / (1.0 - Pe)
     return kappa
+
 
 def eval(pred, gth, show=False):
     """
@@ -95,9 +97,10 @@ def eval(pred, gth, show=False):
         plt.show()
     return acc
 
-def visual_model(model,imgname):
+
+def visual_model(model, imgname):
+    """
+    plot model to image
+    """
     from keras.utils import plot_model
     plot_model(model, to_file=imgname, show_shapes=True)
-
-
-    

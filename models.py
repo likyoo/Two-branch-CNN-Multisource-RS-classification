@@ -156,7 +156,7 @@ def finetune_Net(hsi_weight=None, lidar_weight=None,trainable=False):
         model_h.load_weights(hsi_weight)
     if not lidar_weight is None:
         model_l.load_weights(lidar_weight)
-    for i in xrange(2):
+    for i in range(2):
         model_h.layers.pop()
         model_l.layers.pop()
     if not trainable:
