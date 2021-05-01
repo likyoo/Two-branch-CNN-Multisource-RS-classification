@@ -23,6 +23,7 @@ def cvt_map(pred, show=False):
     for i in range(index.shape[1]):
         pred_map[index[0, i], index[1, i]] = pred[i]
         cls.append(gth[index[0, i], index[1, i]])
+    np.save('pred_map.npy', pred_map)
     cls = np.asarray(cls, dtype=np.int8)
     if show:
         plt.imshow(pred_map)
