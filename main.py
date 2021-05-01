@@ -168,11 +168,9 @@ def main():
         # visual_model(model, imgname)
         train_hsi(model)
     if args.train == 'finetune':
-        model = finetune_Net(hsi_weight=None,
-                             lidar_weight=None,
-                             trainable=False)
-        # imgname = 'model.png'
-        # visual_model(model, imgname)
+        model = finetune_Net(hsi_weight=_weights_h, lidar_weight=_weights_l, trainable=False)
+        imgname = 'model.png'
+        visual_model(model, imgname)
         train_full(model)
     # test phase
     if args.test == 'lidar':
