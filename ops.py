@@ -16,11 +16,11 @@ def cvt_map(pred, show=False):
     gth = tiff.imread(os.path.join(PATH, gth_test))
     pred = np.argmax(pred, axis=1)
     pred = np.asarray(pred, dtype=np.int8) + 1
-    print pred
+    print(pred)
     index = np.load(os.path.join(SAVA_PATH, 'index.npy'))
     pred_map = np.zeros_like(gth)
     cls = []
-    for i in xrange(index.shape[1]):
+    for i in range(index.shape[1]):
         pred_map[index[0, i], index[1, i]] = pred[i]
         cls.append(gth[index[0, i], index[1, i]])
     cls = np.asarray(cls, dtype=np.int8)
@@ -31,7 +31,7 @@ def cvt_map(pred, show=False):
         plt.show()
     count = np.sum(pred == cls)
     mx = confusion(pred - 1, cls - 1)
-    print mx
+    print(mx)
     acc = 100.0 * count / np.sum(gth != 0)
     kappa = compute_Kappa(mx)
     return acc, kappa
@@ -45,7 +45,7 @@ def confusion(pred, labels):
     if len(pred.shape) == 2:
         pred = np.asarray(np.argmax(pred, axis=1))
 
-    for i in xrange(labels.shape[0]):
+    for i in range(labels.shape[0]):
         mx[pred[i], labels[i]] += 1
     mx = np.asarray(mx, dtype=np.int16)
     np.savetxt('confusion.txt', mx, delimiter=" ", fmt="%s")
@@ -78,8 +78,8 @@ def eval(pred, gth, show=False):
     if not w % ksize == 0:
         wm = ((w // ksize) + 1) * ksize
     new_map = np.zeros(shape=(hm, wm))
-    for i in xrange(pred.shape[1]):
-        for j in xrange(pred.shape[0]):
+    for i in range(pred.shape[1]):
+        for j in range(pred.shape[0]):
             new_map[i * ksize:(i + 1) * ksize, j *
                     ksize:(j + 1) * ksize] = pred[j, i, :, :]
     new_map = np.asarray(new_map, dtype=np.int8)
